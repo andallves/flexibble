@@ -61,7 +61,7 @@ export const projectsQuery = `
           liveSiteUrl
           id
           image
-          caterory
+          category
           createdBy {
             id
             email
