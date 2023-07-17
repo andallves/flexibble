@@ -2,6 +2,7 @@ import { GraphQLClient } from 'graphql-request';
 import {
   createProjectMutation,
   createUserMutation,
+  deleteProjectMutation,
   getProjectByIdQuery,
   getProjectsOfUserQuery,
   getUserQuery,
@@ -113,4 +114,9 @@ export const getUserProjects = (id: string, last?: number) => {
 export const getUser = (email: string) => {
   client.setHeader('x-api-key', apiKey);
   return makeGraphQLRequest(getUserQuery, { email });
+};
+
+export const deleteProject = (id: string, token: string) => {
+  client.setHeader('Authorization', `Bearer ${token}`);
+  return makeGraphQLRequest(deleteProjectMutation, { id });
 };
