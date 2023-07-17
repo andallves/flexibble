@@ -21,7 +21,6 @@ export const updateProjectMutation = `
         id
         title
         description
-        description
         createdBy {
           email
           name
