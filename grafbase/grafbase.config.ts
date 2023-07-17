@@ -16,7 +16,7 @@ const User = g
   });
 
 // @ts-ignore
-const Project = g
+const Project: any = g
   .model('Project', {
     title: g.string().length({ min: 3 }),
     description: g.string(),
