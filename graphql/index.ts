@@ -1,47 +1,35 @@
 export const createProjectMutation = `
-  mutation CreateProject($input: ProjectCreateInput!) {
-    projectCreate(input: $input) {
-      project {
-        id
-        title
-        description
-        createdBy {
-          email
-          name
-        }
-      }
-    }
-  }
+	mutation CreateProject($input: ProjectCreateInput!) {
+		projectCreate(input: $input) {
+			project {
+				id
+				title
+				description
+				createdBy {
+					email
+					name
+				}
+			}
+		}
+	}
 `;
 
-export const getUserQuery = `
-  query GetUser($email: String!) {
-    user(by: { email: $email }) {
-      id
-      name
-      email
-      avatarUrl
-      description
-      githubUrl
-      linkedinUrl
-    }
-  }
-`;
+
 
 export const createUserMutation = `
-  mutation CreateUser($input: UserCreateInput!) {
-    userCreate(input: $input) {
-      user {
-        name
-        email
-        avatarUrl
-        description
-        githubUrl
-        linkedinUrl
-        id
-      }
-    }
-  }
+	mutation CreateUser($input: UserCreateInput!) {
+		userCreate(input: $input) {
+			user {
+				name
+				email
+				avatarUrl
+				description
+				githubUrl
+				linkedinUrl
+				id
+			}
+		}
+	}
 `;
 
 export const projectsQuery = `
@@ -89,6 +77,43 @@ export const getProjectByIdQuery = `
         name
         email
         avatarUrl
+      }
+    }
+  }
+`;
+
+export const getUserQuery = `
+  query GetUser($email: String!) {
+    user(by: { email: $email }) {
+      id
+      name
+      email
+      avatarUrl
+      description
+      githubUrl
+      linkedinUrl
+    }
+  }
+`;
+
+export const getProjectsOfUserQuery = `
+  query getUserProjects($id: ID!, $last: Int = 4) {
+    user(by: { id: $id }) {
+      id
+      name
+      email
+      description
+      avatarUrl
+      githubUrl
+      linkedinUrl
+      projects(last: $last) {
+        edges {
+          node {
+            id
+            title
+            image
+          }
+        }
       }
     }
   }
