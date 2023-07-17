@@ -23,11 +23,11 @@ const Modal = ({ children }: { children: ReactNode }) => {
   );
 
   return (
-    <div ref={overlay} className="modal" onClick={handleClick}>
+    <div ref={overlay} className="flexStart modal" onClick={handleClick}>
       <button
         type="button"
         onClick={onDismiss}
-        className="absolute top-4 right-8"
+        className="absolute top-4 right-5"
       >
         <Image src="/close.svg" width={17} height={17} alt="close" />
       </button>
