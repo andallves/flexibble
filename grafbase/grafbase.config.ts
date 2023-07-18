@@ -1,6 +1,4 @@
 import { g, auth, config } from '@grafbase/sdk';
-
-// @ts-ignore
 const User = g
   .model('User', {
     name: g.string().length({ min: 2, max: 100 }),
@@ -15,7 +13,6 @@ const User = g
     rules.public().read();
   });
 
-// @ts-ignore
 const Project = g
   .model('Project', {
     title: g.string().length({ min: 3 }),
